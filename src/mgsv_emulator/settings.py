@@ -5,6 +5,7 @@ import os
 # you need a static key to decode communications between client and server
 # where to get: inside mgsvtpp.exe
 STATIC_KEY_FILE_PATH = '/var/www/mgsv_server/static_key.bin'
+#STATIC_KEY_FILE_PATH = 'C://Users//lynch//Documents//mgsv_emulator-2//files//static_key.bin'
 
 #============================================================================
 # logging
@@ -20,7 +21,7 @@ PROXY_ALL = False
 
 # PROXY_ALWAYS is a list of commands that will be always proxyfied 
 # regardless of PROXY_ALL value
-PROXY_ALWAYS = ['CMD_REQAUTH_HTTPS', 'CMD_AUTH_STEAMTICKET']
+PROXY_ALWAYS = []#'CMD_REQAUTH_HTTPS', 'CMD_AUTH_STEAMTICKET']
 
 #============================================================================
 # client authentication
@@ -35,8 +36,8 @@ PROXY_ALWAYS = ['CMD_REQAUTH_HTTPS', 'CMD_AUTH_STEAMTICKET']
 #  and run server locally to capture commands for debugging
 #
 # STEAM_ID is client's steamid, duh
-STEAM_ID = '76561197960287930'
+STEAM_ID = ''
 
 # MAGIC_HASH is a hash returned from konami in response to CMD_REQAUTH_HTTPS
 # essentially a password
-MAGIC_HASH = 'QM8ZNBWTIFY7PFFBXVL6NQ=='
+MAGIC_HASH = ''

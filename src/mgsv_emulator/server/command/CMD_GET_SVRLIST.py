@@ -7,10 +7,15 @@ class CMD_GET_SVRLIST(Command):
         self._receiver.compress = False
 
     def get_svrlist(self):
-        # no idea what that server list could be, leave as it is 
         data = {
-            'server_num': 0,
-            'svrlist': []
+            'crypto_type': 'COMMON', 
+            'flowid': None, 
+            'msgid': 'CMD_GET_SVRLIST', 
+            'result': 'NOERR', 
+            'rqid': 0, 
+            'server_num': 0, 
+            'svrlist': [], 
+            'xuid': None
         }
         return data
 
@@ -18,3 +23,8 @@ class CMD_GET_SVRLIST(Command):
         data = self.get_svrlist()
         return self._receiver.action(data, self.__class__.__name__)
 
+"""
+{'compress': False, 'data': {'lang': 'ANY', 'msgid': 'CMD_GET_SVRLIST', 'rqid': 0}, 'original_size': 49, 'session_crypto': False, 'session_key': ''}
+{'compress': False, 'data': {'crypto_type': 'COMMON', 'flowid': None, 'msgid': 'CMD_GET_SVRLIST', 'result': 'NOERR', 'rqid': 0, 'server_num': 0, 'svrlist': [], 'xuid': None}, 'original_size': 130, 'session_crypto': False, 
+'session_key': None}
+"""

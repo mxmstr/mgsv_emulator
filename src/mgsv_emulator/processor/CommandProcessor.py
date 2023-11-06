@@ -30,12 +30,12 @@ class CommandProcessor:
             player = db.player_find_by_session_id(decoded_request['session_key'], get_dict=True)
             if not isinstance(player, dict):
                 # not a dict, list or None
-                logger.info('Found {} players with session_key {}'.format(len(player), session_key))
+                logger.info('Found {} players with session_key {}'.format(len(player), decoded_request['session_key']))
                 return result
 
             encoder.__init_session_blowfish__(player['crypto_key'])
             decoder.__init_session_blowfish__(player['crypto_key'])
-            decoded_request = self._decoder.decode(request)
+            decoded_request = decoder.decode(request)
 
         logger.debug('Decoded request: {}'.format(decoded_request))
 

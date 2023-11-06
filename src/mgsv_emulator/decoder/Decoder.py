@@ -5,6 +5,7 @@ import json
 import zlib
 from .. import settings
 import sys
+import platform
 
 from .. import settings
 import logging
@@ -33,7 +34,7 @@ class Decoder(object):
                         static_key = bytearray(open(settings.STATIC_KEY_FILE_PATH,'rb').read(16))
 
 #================= a dirty hack for debugging
-#              crypto_key = bytearray(base64.decodestring('AAAAAAAAAAAAAAAAAAAAAA=='.encode()))
+#              crypto_key = bytearray(base64.decodebytes('AAAAAAAAAAAAAAAAAAAAAA=='.encode()))
 #================= remove dirty hack
                 self.__static_blowfish.initialize(static_key)
 
@@ -53,7 +54,7 @@ class Decoder(object):
                         if isinstance(data['data'], dict):
                                 if 'crypto_key' in data['data']:
                                         if len(data['data']['crypto_key']) > 0:
-                                                crypto_key = bytearray(base64.decodestring(data['data']['crypto_key'].encode()))
+                                                crypto_key = bytearray(base64.decodebytes(data['data']['crypto_key'].encode()))
                                                 self.__crypto_key = crypto_key
                 return crypto_key
 
@@ -62,7 +63,7 @@ class Decoder(object):
                 self.__session_blowfish = Blowfish()
                 if crypto_key:
                         if isinstance(crypto_key, str):
-                                crypto_key = bytearray(base64.decodestring(crypto_key.encode()))
+                                crypto_key = bytearray(base64.decodebytes(crypto_key.encode()))
                         self.__crypto_key = crypto_key
                 self.__session_blowfish.initialize(self.__crypto_key)
 
@@ -100,7 +101,7 @@ class Decoder(object):
                 # you need to remove all line breaks, commas and html-escapes before decoding
                 encoded_text = None
                 try:
-                        data_encoded = base64.decodestring(data.encode())
+                        data_encoded = base64.decodebytes(data.encode())
                 except Exception as e:
                         raise e
                 else:
@@ -124,7 +125,7 @@ class Decoder(object):
                 if data_json['session_crypto']:
                         if self.__session_blowfish:
                                 # COMPOUND encryption with blowfish
-                                embedded = base64.decodestring(data_json['data'].encode())
+                                embedded = base64.decodebytes(data_json['data'].encode())
                                 data_json['data'] = self.__decipher__(self.__session_blowfish, embedded)
                                 if data_json['compress']:
                                         data_json['data'] = zlib.decompress(data_json['data'])
@@ -135,10 +136,10 @@ class Decoder(object):
                 else:
                         # no encryption, used in CMD_GET_URLLIST and others before getting session key
                         if data_json['compress']:
-                                data_json['data'] = zlib.decompress(base64.decodestring(data_json['data'].encode()))
+                                data_json['data'] = zlib.decompress(base64.decodebytes(data_json['data'].encode()))
 
                 if isinstance(data_json['data'], bytes):
-                        data_json['data'] = data_json['data'].decode()
+                        data_json['data'] = data_json['data'].decode(errors='ignore')
 
                 if 'original_size' in data_json and isinstance(data_json['data'], str):
                         # remove padding and convert to json

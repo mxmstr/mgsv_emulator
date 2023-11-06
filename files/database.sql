@@ -3,7 +3,7 @@ use mgsv_server;
 
 create table if not exists url(
         id int NOT NULL AUTO_INCREMENT,
-        url_type varchar(10),
+        url_type varchar(20),
         url_version int,
         url_link varchar(100),
         PRIMARY KEY(id)
@@ -91,7 +91,7 @@ create table if not exists server_user(
 	crypto_key varchar(32), 		-- from server CMD_REQAUTH_HTTPS   , blowfish crypto key used for encrypting session messages
 	last_login datetime,			-- date of last login
 	last_command datetime,			-- date of last received command from client
---	session_id varchar(32),			-- session identifier used for further communications, expires if there was no commands for client for 2 mins
+	session_id varchar(32),			-- session identifier used for further communications, expires if there was no commands for client for 2 mins
 	client_ip varchar(16), 			-- client ip, can be used for static authentication
 	ex_ip varchar(16), 				-- from client CMD_SEND_IPANDPORT
 	ex_port varchar(7),
@@ -104,6 +104,22 @@ create table if not exists server_user(
 	region int,
 	PRIMARY KEY(id)
 );
+
+insert into server_user(steam_id, currency, password, smart_device_id, crypto_key, session_id, client_ip, ex_ip, ex_port, in_ip, in_port, nat)
+values (
+	'00000000000000000', 
+	'USD',
+	'password',
+	'sMaRtDeViCeId',
+	'MyCoolCryptoKeyAAAAAAA==',
+    '11111111111111111111111111111111',
+	'192.168.0.10',
+    '192.168.0.10',
+	'5733',
+	'192.168.0.10',
+	'5733',
+	'OPEN_INTERNET'
+	);
 
 create table if not exists player_vars(
 	id int NOT NULL AUTO_INCREMENT,
@@ -268,9 +284,33 @@ create table if not exists settings(
     PRIMARY KEY(id,name)
 );
 
-INSERT INTO settings(name, value) VALUES('base_url','http://192.168.99.100/');
+INSERT INTO settings(name, value) VALUES('base_url','http://192.168.0.10/');
 
-INSERT INTO url(url_type, url_link, url_version) VALUES('GATE','tppstm/gate',10),('WEB','tppstm/main',10),('EULA','tppstmweb/eula/eula.var',4),('HEATMAP','tppstmweb/heatmap',0),('DEVICE','tppstm/main',0);
+INSERT INTO url(url_type, url_link, url_version) 
+VALUES
+	-- ('GATE','tppstm/gate',10),
+	-- ('WEB','tppstm/main',10),
+	-- ('EULA','tppstmweb/eula/eula.var',4),
+	('HEATMAP','tppstmweb/heatmap',0),
+	('DEVICE','tppstm/main',0),
+
+	('GATE', 'mgostm/gate', 14), 
+	('WEB', 'mgostm/main', 14), 
+	('EULA', 'tppstmweb/eula/eula.var', 6), 
+	('EULA_COIN', 'tppstmweb/coin/coin.var', 1), 
+	('POLICY_GDPR', 'tppstmweb/gdpr/privacy.var', 1), 
+	('POLICY_JP', 'tppstmweb/privacy_jp/privacy.var', 2), 
+	('POLICY_ELSE', 'tppstmweb/privacy/privacy.var', 1), 
+	('POLICY_CCPA', 'tppstmweb/privacy_ccpa/privacy.var', 1), 
+	('LEGAL', 'legal', 1), 
+	('EULA_TEXT', 'legal/mgsvtpp/terms/', 1), 
+	('EULA_COIN_TEXT', 'legal/mgsvtpp/terms/currency/', 1), 
+	('POLICY_GDPR_TEXT', 'legal/mgsvtpp/', 1), 
+	('POLICY_JP_TEXT', 'legal/privacy/view/', 2), 
+	('POLICY_ELSE_TEXT', 'legal/privacy/view/', 1), 
+	('POLICY_CCPA_TEXT', 'legal/mgsvtpp/ppa4ca/', 1),
+	('PERMISSION', 'permission', 1);
+
 -- unused params
 -- sync_mother_base - sent from client
 --

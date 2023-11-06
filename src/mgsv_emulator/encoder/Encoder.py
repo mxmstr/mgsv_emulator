@@ -7,6 +7,7 @@ import zlib
 import warnings
 from .. import settings
 import sys
+import platform
 
 from .. import settings
 import logging
@@ -34,7 +35,7 @@ class Encoder(object):
 		self.__session_blowfish = Blowfish()
 		if crypto_key:
 			if isinstance(crypto_key, str):
-				crypto_key = bytearray(base64.decodestring(crypto_key.encode()))
+				crypto_key = bytearray(base64.decodebytes(crypto_key.encode()))
 			self.__crypto_key = crypto_key
 		self.__session_blowfish.initialize(self.__crypto_key)
 
@@ -89,7 +90,7 @@ class Encoder(object):
 			_command['original_size'] = len(_command['data'])
 
 			if _command['compress'] and not _command['session_crypto']:
-				_command['data'] = base64.encodestring(zlib.compress(_command['data'].encode())).decode()
+				_command['data'] = base64.encodebytes(zlib.compress(_command['data'].encode())).decode()
 				_command['data'] = _command['data'].replace('\n','\r\n')
 
 			if _command['session_crypto']:
@@ -99,11 +100,11 @@ class Encoder(object):
 					_command['data'] = self.__add_padding__(_command['data'])
 				else:
 					_command['data'] = self.__add_padding__(_command['data'])
-				_command['data'] = base64.encodestring(self.__encipher__(self.__session_blowfish, _command['data'])).decode()
+				_command['data'] = base64.encodebytes(self.__encipher__(self.__session_blowfish, _command['data'])).decode()
 				_command['data'] = _command['data'].replace('\n','\r\n').rstrip('\r\n')
 
 		text = json.dumps(_command,sort_keys=True).replace(" ",'')
 		text = self.__add_padding__(text.encode())
-		text = base64.encodestring(self.__encipher__(self.__static_blowfish, bytearray(text)))
+		text = base64.encodebytes(self.__encipher__(self.__static_blowfish, bytearray(text)))
 		text = text.decode().replace('\n','\r\n').rstrip('\r\n')
 		return text
