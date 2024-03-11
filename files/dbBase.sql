@@ -102,6 +102,8 @@ create table if not exists server_user(
 	country varchar(5),
 	lang varchar(5),
 	region int,
+	character_json JSON,
+	loadout_json JSON,
 	PRIMARY KEY(id)
 );
 
@@ -163,7 +165,7 @@ create table if not exists server_state(
 create table if not exists server_text(
 	identifier varchar(100) NOT NULL,
 	language varchar(4) NOT NULL,
-	text varchar(50000),
+	text TEXT,
 	PRIMARY KEY(identifier,language)
 );
 

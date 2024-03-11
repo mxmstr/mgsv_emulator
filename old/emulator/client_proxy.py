@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.11
 from mgsv_emulator.emulator.httpclient import HttpClient
 from .client_commands import urls as server_urls
 from datetime import datetime

@@ -3,11 +3,12 @@ class Receiver:
     Know how to perform the operations associated with carrying out a
     request. Any class may serve as a Receiver.
     """
-    def __init__(self):
+    def __init__(self, session_key):
         # most of the commands are encrypted (use a session key to encrypt data)
         # override those in command definition
         self.encrypt = True
         self.compress = True
+        self.session_key = session_key
 
     def action(self, data, msgid):
         response = {

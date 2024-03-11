@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.11
 import sys
 import os
 sys.path.append(os.path.dirname(__file__))

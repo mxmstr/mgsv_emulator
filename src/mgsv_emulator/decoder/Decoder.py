@@ -3,10 +3,8 @@ import base64
 import struct
 import json
 import zlib
-from .. import settings
 import sys
 import platform
-
 from .. import settings
 import logging
 logger = logging.getLogger(settings.LOGGER_NAME)

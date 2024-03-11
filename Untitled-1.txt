@@ -1,0 +1,16 @@
+nano /var/log/mgsv_server.error.log
+tail /var/log/mgsv_server.error.log
+
+nano /var/log/app.log
+nano /var/log/error.log
+nano /var/log/apache/error.log
+
+nano /var/log/mgsv_server.access.log
+
+CMD_GET_MBCOIN_REMAINDER
+CMD_GET_MGO_TITLE_LIST
+
+docker build -t mgo .
+docker run -d --name mgo -p 80:80  mgo
+docker save -o mgo.tar mgo
+docker cp mgo:/var/log/app.log C:\Users\Lynch\Desktop

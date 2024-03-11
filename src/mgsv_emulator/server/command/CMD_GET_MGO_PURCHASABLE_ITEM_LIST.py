@@ -28,8 +28,7 @@ class CMD_GET_MGO_PURCHASABLE_ITEM_LIST(Command):
                     }
                 ]
             }, 
-            'result': 
-            'NOERR', 
+            'result': 'NOERR', 
             'rqid': 0, 
             'xuid': None
         }

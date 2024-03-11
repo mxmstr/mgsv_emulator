@@ -14,9 +14,9 @@ class CMD_GET_MGO_PROGRESSION(Command):
             'msgid': 'CMD_GET_MGO_PROGRESSION',
             'progression': {
                 'character_list': [
-                    {'legendary': 1, 'prestige': 1, 'xp': 999999},
-                    {'legendary': 1, 'prestige': 1, 'xp': 999999},
-                    {'legendary': 1, 'prestige': 1, 'xp': 999999}
+                    {'legendary': 1, 'prestige': 2, 'xp': 999999},
+                    {'legendary': 1, 'prestige': 2, 'xp': 999999},
+                    {'legendary': 1, 'prestige': 2, 'xp': 999999}
                 ],
                 'permanent_unlock_list': [1146596596, 1689202044],
                 'version': 143737279559449

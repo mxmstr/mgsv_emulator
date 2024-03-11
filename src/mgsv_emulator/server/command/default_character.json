@@ -1,0 +1,160 @@
+ {
+    "match": {
+        "auto_leave": 1,
+        "player_num": 2,
+        "host_comment": 0,
+        "max_capacity": 12,
+        "briefing_time": 2,
+        "mission_slot_list": [
+            {
+                "map": 1,
+                "rule": 0,
+                "rush": 0,
+                "time": 5,
+                "flags": 35,
+                "night": 0,
+                "ticket": 30,
+                "weather": 1,
+                "unique_character": 1
+            },
+            {
+                "map": 0,
+                "rule": 1,
+                "rush": 1,
+                "time": 7,
+                "flags": 34,
+                "night": 1,
+                "ticket": 0,
+                "weather": 1,
+                "unique_character": 0
+            },
+            {
+                "map": 2,
+                "rule": 2,
+                "rush": 0,
+                "time": 6,
+                "flags": 35,
+                "night": 0,
+                "ticket": 0,
+                "weather": 1,
+                "unique_character": 1
+            },
+            {
+                "map": 0,
+                "rule": 0,
+                "rush": 0,
+                "time": 0,
+                "flags": 34,
+                "night": 0,
+                "ticket": 0,
+                "weather": 0,
+                "unique_character": 0
+            },
+            {
+                "map": 0,
+                "rule": 0,
+                "rush": 0,
+                "time": 0,
+                "flags": 34,
+                "night": 0,
+                "ticket": 0,
+                "weather": 0,
+                "unique_character": 0
+            }
+        ],
+        "mission_slot_count": 3
+    },
+    "version": 130186347867651,
+    "last_active": 0,
+    "selected_bgm": 0,
+    "character_list": [
+        {
+            "name": "",
+            "avatar": {
+                "voice": 15,
+                "face_race": 0,
+                "face_type": 5,
+                "face_color": 0,
+                "hair_color": 1,
+                "hair_style": 255,
+                "beard_style": 255,
+                "beard_length": 0,
+                "tattoo_color": 0,
+                "eyebrow_style": 2,
+                "eyebrow_width": 0,
+                "face_variation": 0,
+                "left_eye_color": 0,
+                "accessory_flags": 255,
+                "right_eye_color": 0,
+                "motion_frame_list":[4,5,3,0,7,5,4,7,4,10,5,5,3,5,0,4,3,8,0,0,4,10,0,5,0,2,2,0,0,3,5,8,10,2,2,0,0,4,10,0,8,6,7,3,6,0,5,7,5,5,3,0,0,5,4,5,5,5,10,8],
+                "left_eye_brightness": 0,
+                "right_eye_brightness": 0,
+                "gash_or_tattoo_variation": 0
+            },
+            "player_type": 5,
+            "last_loadout": 0,
+            "player_class": 18
+        },
+        {
+            "name": "Infiltrator",
+            "avatar": {
+                "voice": 211,
+                "face_race": 128,
+                "face_type": 134,
+                "face_color": 130,
+                "hair_color": 132,
+                "hair_style": 128,
+                "beard_style": 255,
+                "beard_length": 0,
+                "tattoo_color": 0,
+                "eyebrow_style": 5,
+                "eyebrow_width": 0,
+                "face_variation": 134,
+                "left_eye_color": 2,
+                "accessory_flags": 0,
+                "right_eye_color": 2,
+                "motion_frame_list": [5,2,5,0,5,0,1,5,4,7,6,5,0,10,5,0,0,10,8,8,3,5,5,5,0,0,6,2,0,4,5,5,1,3,6,3,4,5,1,8,1,0,2,6,6,5,2,5,4,6,5,5,10,0,3,0,4,7,2,5],
+                "left_eye_brightness": 0,
+                "right_eye_brightness": 0,
+                "gash_or_tattoo_variation": 1
+            },
+            "player_type": 6,
+            "last_loadout": 0,
+            "player_class": 33
+        },
+        {
+            "name": "Scout",
+            "avatar": {
+                "voice": 209,
+                "face_race": 0,
+                "face_type": 4,
+                "face_color": 2,
+                "hair_color": 1,
+                "hair_style": 0,
+                "beard_style": 3,
+                "beard_length": 0,
+                "tattoo_color": 0,
+                "eyebrow_style": 0,
+                "eyebrow_width": 0,
+                "face_variation": 1,
+                "left_eye_color": 5,
+                "accessory_flags": 2,
+                "right_eye_color": 5,
+                "motion_frame_list": [10,1,9,5,3,1,3,1,4,7,1,10,9,4,2,0,9,7,5,5,7,9,5,8,5,6,0,0,5,0,0,3,9,0,8,5,5,7,0,5,3,1,6,4,2,5,6,5,0,5,3,0,5,10,6,8,6,5,1,2],
+                "left_eye_brightness": 0,
+                "right_eye_brightness": 0,
+                "gash_or_tattoo_variation": 1
+            },
+            "player_type": 5,
+            "last_loadout": 0,
+            "player_class": 48
+        }
+    ],
+    "preset_radio_rule_list": [
+        {"preset_radio_id_list": [0, 0, 0, 0, 0, 0, 0, 0]},
+        {"preset_radio_id_list": [0, 0, 0, 0, 0, 0, 0, 0]},
+        {"preset_radio_id_list": [0, 0, 0, 0, 0, 0, 0, 0]},
+        {"preset_radio_id_list": [0, 0, 0, 0, 0, 0, 0, 0]},
+        {"preset_radio_id_list": [0, 0, 0, 0, 0, 0, 0, 0]}
+    ]
+}
