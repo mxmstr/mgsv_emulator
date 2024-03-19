@@ -5,6 +5,8 @@ Based on unknown321's TPP server emulator, this server emulates just the basic f
 
 You still need a legit copy of the latest Steam version of Metal Gear Solid V - The Phantom Pain to get this to work.
 
+I made this emulator for enabling local split-screen multiplayer, and I don't plan to implement anything beyond the minimum necessary to accomplish just that. Here's how to set that up with Nucleus Co-op: https://www.youtube.com/watch?v=0mJo00FnXto
+
 How to use
 ==========================
 Download Docker Desktop for Windows and run it.
