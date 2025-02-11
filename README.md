@@ -7,6 +7,8 @@ You still need a legit copy of the latest Steam version of Metal Gear Solid V - 
 
 I made this emulator for enabling local split-screen multiplayer, and I don't plan to implement anything beyond the minimum necessary to accomplish just that. Here's how to set that up with Nucleus Co-op: https://www.youtube.com/watch?v=0mJo00FnXto
 
+Update: The Nucleus Co-op script now uses a serverless version of the emulator which you can get here: https://github.com/mxmstr/NucleusGameFixes/releases/tag/MGSV
+
 How to use
 ==========================
 Download Docker Desktop for Windows and run it.
